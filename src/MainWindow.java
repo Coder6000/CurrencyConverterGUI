@@ -18,10 +18,8 @@ public class MainWindow {
     private final JLabel outputText = new JLabel("Output: ");
 
     private final JTextField amountFieldInput = new JTextField();
-    private float initialAmount;
 
     private final JTextField outputField = new JTextField();
-    private float wantedAmount;
 
     private String initialCurrencies[] = {"Euros", "Dollars", "British Pounds"};
     private final JComboBox<String> initialCurrencyOptions = new JComboBox<>(initialCurrencies);
@@ -91,9 +89,7 @@ public class MainWindow {
     private void initializeListeners() {
         convertButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                Converter.ConvertEuro(initialCurrencyOptions, wantedCurrencyOptions, amountFieldInput, outputField, initialAmount, wantedAmount);
-                Converter.ConvertDollar(initialCurrencyOptions, wantedCurrencyOptions, amountFieldInput, outputField, initialAmount, wantedAmount);
-                Converter.ConvertBP(initialCurrencyOptions, wantedCurrencyOptions, amountFieldInput, outputField, initialAmount, wantedAmount);
+                Converter.convertCurrency(initialCurrencyOptions, wantedCurrencyOptions, amountFieldInput, outputField);
             }
         });
     }
